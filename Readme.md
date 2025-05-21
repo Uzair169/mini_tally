@@ -53,14 +53,14 @@ tally-ai-infra/
 
 ````
 
----
+
 
 ## ⚙️ Local Setup
 
 1. **Install dependencies**
    ```bash
    pip install -r requirements.txt
-````
+   ```
 
 2. **Enable Ollama and run a local model**
 
@@ -82,10 +82,10 @@ tally-ai-infra/
 
 Upload a `.txt` file containing financial data to embed.
 
-```bash
-curl -X POST http://localhost:6000/api/upload \
+   ```bash
+   curl -X POST http://localhost:6000/api/upload \
   -F "file=@dummy_data_apple.txt"
-```
+   ```
 
 ---
 
@@ -93,42 +93,42 @@ curl -X POST http://localhost:6000/api/upload \
 
 Ask a question related to the ingested content.
 
-```bash
-curl -X POST http://localhost:6000/api/ask \
+   ```bash
+   curl -X POST http://localhost:6000/api/ask \
   -H "Content-Type: application/json" \
   -d '{"query": "What is the revenue of Apple in 2023?"}'
-```
+   ```
 
 #### Example response
 
-```json
-{
-  "result": {
+   ```json
+   {
+     "result": {
     "revenue": "$394.3 billion",
     "net_income": "$99.8 billion",
     "period": "Q4 2023"
-  }
-}
-```
+     }
+   }
+   ```
 
 ---
 
 ## 📦 Tech Stack
 
-* **Backend:** FastAPI
-* **LLM Runtime:** [Ollama](https://ollama.com)  (Llama3.2:1b)
-* **Embedding & Vector DB:** PostgreSQL + pgvector
-* **RAG Orchestration:** LangChain
-* **Deployment:** Docker (Postgres), Local runtime for LLM
+* Backend: **FastAPI**
+* LLM Runtime: **[Ollama](https://ollama.com)  (Llama3.2:1b)**
+* Embedding & Vector DB: **PostgreSQL + pgvector**
+* RAG Orchestration: **LangChain**
+* Deployment: **Docker (Postgres), Local runtime for LLM**
 
 ---
 
 ## 📝 Roadmap
 
-* [ ] Containerize full stack (FastAPI + Ollama + Postgres)
-* [ ] Add support for remote LLM fallback (e.g., OpenAI)
-* [ ] Benchmark inference speed & quality (OSS vs GPT-4)
-* [ ] Deploy on cloud (EC2 or ECS)
+[ ] Containerize full stack (FastAPI + Ollama + Postgres) <br>
+[ ] Add support for remote LLM fallback (e.g., OpenAI) <br>
+[ ] Benchmark inference speed & quality (OSS vs GPT-4) <br>
+[ ] Deploy on cloud (EC2 or ECS) <br>
 
 ---
 
